@@ -86,6 +86,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 color = (0,0,255)
             self.imgA_tmp = draw_single_box(self.imgA_tmp,x1,y1,x2,y2,'%.3f'%(score),color)
             self.imgB_tmp = draw_single_box(self.imgB_tmp,x1,y1,x2,y2,'%.3f'%(score),color)
+        cv2.imwrite('data/result/imgA_Rects.jpg',self.imgA_tmp)
+        cv2.imwrite('data/result/imgB_Rects.jpg',self.imgB_tmp)
         self.showRect()
 
     
