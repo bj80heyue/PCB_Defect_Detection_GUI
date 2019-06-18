@@ -1,6 +1,10 @@
 # PCB_Defect_Detection_GUI
 ## Introduction
-None
+- main.py
+- mainUI.py
+  Program UI interface configuration file.
+- mainWindow.py
+  Interactive logic code.
 
 ## Installation[python3.6]
 ### Requirements
@@ -31,3 +35,6 @@ python main.py
 ![detect](demo/detect.png)
 - Step 4.Select the display page.Set the threshold and observe the results.
 ![show](demo/show.png)
+- Step 5.
+  - Images after registration can be found in 'data/tmp/'.
+  - Images with annotated results are stored 'data/result/'
