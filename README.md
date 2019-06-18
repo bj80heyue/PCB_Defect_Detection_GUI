@@ -23,4 +23,4 @@ python main.py
 ```
 
 ## Interface
-![home](demo/home.jpg)
+![home](demo/home.png)
