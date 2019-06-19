@@ -3,7 +3,7 @@
 - main.py
 - mainUI.py
   
-  Program UI interface configuration file.
+  UI configuration file.
 - mainWindow.py
   
   Interactive logic code.
