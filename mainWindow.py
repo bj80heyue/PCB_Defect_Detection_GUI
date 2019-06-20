@@ -133,7 +133,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     #显示Qimg图像
     def showQimg(self,label,qimg):
         pixmap = QPixmap.fromImage(qimg)
-        pixmap = pixmap.scaled(label.size(),Qt.KeepAspectRatio)
+        size_ = label.size()
+        size_img = QtCore.Qsize(size_.width(),size_.height()-2)
+        pixmap = pixmap.scaled(size_img,Qt.KeepAspectRatio)
+        print(label.size())
         label.setPixmap(pixmap)
 
     #显示ndarray图像

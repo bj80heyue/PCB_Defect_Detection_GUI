@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import *
 
 
 class Ui_MainWindow(object):
@@ -17,11 +18,16 @@ class Ui_MainWindow(object):
 		MainWindow.setLayoutDirection(QtCore.Qt.LeftToRight)
 		self.centralwidget = QtWidgets.QWidget(MainWindow)
 		self.centralwidget.setObjectName("centralwidget")
+		self.Hlayout_main = QtWidgets.QHBoxLayout(self.centralwidget)
+		self.Hlayout_main.setObjectName("MainLayout")
 		self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
 		self.tabWidget.setGeometry(QtCore.QRect(10, 10, 861, 521))
 		self.tabWidget.setObjectName("tabWidget")
 		self.tab = QtWidgets.QWidget()
 		self.tab.setObjectName("tab")
+		self.VLayoutTab0 = QtWidgets.QVBoxLayout(self.tab)
+		self.VLayoutTab0.setObjectName("VLayTab0")
+
 		self.verticalLayoutWidget = QtWidgets.QWidget(self.tab)
 		self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 821, 481))
 		self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
@@ -80,6 +86,9 @@ class Ui_MainWindow(object):
 		self.tabWidget.addTab(self.tab, "")
 		self.tab_2 = QtWidgets.QWidget()
 		self.tab_2.setObjectName("tab_2")
+		self.VLayoutTab1 = QtWidgets.QVBoxLayout(self.tab_2)
+		self.VLayoutTab1.setObjectName("VLayTab1")
+
 		self.verticalLayoutWidget_4 = QtWidgets.QWidget(self.tab_2)
 		self.verticalLayoutWidget_4.setGeometry(QtCore.QRect(20, 10, 821, 481))
 		self.verticalLayoutWidget_4.setObjectName("verticalLayoutWidget_4")
@@ -174,19 +183,23 @@ class Ui_MainWindow(object):
 		self.statusbar = QtWidgets.QStatusBar(MainWindow)
 		self.statusbar.setObjectName("statusbar")
 		MainWindow.setStatusBar(self.statusbar)
+		self.Hlayout_main.addWidget(self.tabWidget)
+		self.VLayoutTab0.addWidget(self.verticalLayoutWidget)
+		self.VLayoutTab1.addWidget(self.verticalLayoutWidget_4)
 
 		self.horizontalLayout_5.setStretch(1,1)
 		self.horizontalLayout_5.setStretch(0,1)
 		self.horizontalLayout.setStretch(0,1)
 		self.horizontalLayout.setStretch(1,1)
-
+		
 		self.retranslateUi(MainWindow)
 		self.tabWidget.setCurrentIndex(0)
 		QtCore.QMetaObject.connectSlotsByName(MainWindow)
+	
 
 	def retranslateUi(self, MainWindow):
 		_translate = QtCore.QCoreApplication.translate
-		MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+		MainWindow.setWindowTitle(_translate("MainWindow", "PCB缺陷检测展示系统"))
 		self.lbe_imgA.setText(_translate("MainWindow", "ImgA"))
 		self.btn_selNegBoard.setText(_translate("MainWindow", "选择待测试板"))
 		self.lbe_imgB.setText(_translate("MainWindow", "lbe_imgB"))
@@ -210,6 +223,10 @@ class Ui_MainWindow(object):
 		self.btn_shrink.setText(_translate("MainWindow","缩小"))
 		self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "展示页"))
 
+		self.lbe_imgA.setSizePolicy(QtWidgets.QSizePolicy.Ignored,QtWidgets.QSizePolicy.Ignored)
+		self.lbe_imgB.setSizePolicy(QtWidgets.QSizePolicy.Ignored,QtWidgets.QSizePolicy.Ignored)
+		self.lbe_PatchA.setSizePolicy(QtWidgets.QSizePolicy.Ignored,QtWidgets.QSizePolicy.Ignored)
+		self.lbe_PatchB.setSizePolicy(QtWidgets.QSizePolicy.Ignored,QtWidgets.QSizePolicy.Ignored)
 		#self.lbe_imgA.setScaledContents(True)
 		#self.lbe_imgB.setScaledContents(True)
 
