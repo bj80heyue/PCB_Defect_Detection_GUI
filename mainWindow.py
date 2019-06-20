@@ -47,6 +47,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.tabWidget.currentChanged['int'].connect(self.moveLeft)
         self.btn_enlarge.clicked.connect(self.enlarge)
         self.btn_shrink.clicked.connect(self.shrink)
+        self.btn_saveRes.clicked.connect(self.saveRes)
 
         self.btn_upload.setEnabled(False)
         self.btn_startDetect.setEnabled(False)
@@ -86,10 +87,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 color = (0,0,255)
             self.imgA_tmp = draw_single_box(self.imgA_tmp,x1,y1,x2,y2,'%.3f'%(score),color)
             self.imgB_tmp = draw_single_box(self.imgB_tmp,x1,y1,x2,y2,'%.3f'%(score),color)
-        cv2.imwrite('data/result/imgA_Rects.jpg',self.imgA_tmp)
-        cv2.imwrite('data/result/imgB_Rects.jpg',self.imgB_tmp)
         self.showRect()
 
+    def saveRes(self):
+        cv2.imwrite('data/result/imgA_Rects.jpg',self.imgA_tmp)
+        cv2.imwrite('data/result/imgB_Rects.jpg',self.imgB_tmp)
+        self.statusBar().showMessage('结果图像保存完毕! 存放在data/result/imgX_Rects.jpg')
     
     #显示第index个rect
     def showRect(self):
@@ -160,12 +163,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.statusBar().showMessage('Error: 请选择待检测板和标准板！')
             return None
 
-        self.statusBar().showMessage('正在上传图像...(由于网速限制20MB图像大概需要15s')
+        self.statusBar().showMessage('正在上传图像...(由于网速限制20MB图像大概需要15-30s')
         self.uploader = Uploader(self.pathA,self.pathB)
         self.uploader.signal.connect(self.callback_upload)
         self.uploader.start()
 
-        self.timer = Timer(15)
+        self.timer = Timer(25)
         self.timer.countChanged.connect(self.callback_updateBar)
         self.timer.start()
         self.signal_stop.connect(self.timer.stop)
@@ -235,7 +238,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.showQimg(self.lbe_imgB,QimgB)
             self.statusBar().showMessage('成功接收结果数据, 数据处理完毕!')
             self.progressBar.setValue(100)
+            self.horizontalSlider.setValue(20)
             self.confChange(20)
+            
             self.confirmFiltRes()
             self.tabWidget.setTabEnabled(1,True)
         else:

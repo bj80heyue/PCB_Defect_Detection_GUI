@@ -109,6 +109,9 @@ class Ui_MainWindow(object):
 		self.btn_filterRes = QtWidgets.QPushButton(self.verticalLayoutWidget_4)
 		self.btn_filterRes.setObjectName("btn_filterRes")
 		self.horizontalLayout_3.addWidget(self.btn_filterRes)
+		self.btn_saveRes= QtWidgets.QPushButton(self.verticalLayoutWidget_4)
+		self.btn_saveRes.setObjectName("btn_saveRes")
+		self.horizontalLayout_3.addWidget(self.btn_saveRes)
 		self.verticalLayout_4.addLayout(self.horizontalLayout_3)
 		self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
 		self.horizontalLayout_5.setObjectName("horizontalLayout_5")
@@ -195,6 +198,7 @@ class Ui_MainWindow(object):
 		self.label_4.setText(_translate("MainWindow", "  置信度阈值："))
 		self.lbe_confThresh.setText(_translate("MainWindow", "XXXX"))
 		self.btn_filterRes.setText(_translate("MainWindow", "过滤结果"))
+		self.btn_saveRes.setText(_translate("MainWindow", "保存图像"))
 		self.lbe_PatchA.setText(_translate("MainWindow", "PatchA"))
 		self.label_8.setText(_translate("MainWindow", "待检测板Patch"))
 		self.lbe_PatchB.setText(_translate("MainWindow", "PatchB"))
@@ -206,6 +210,6 @@ class Ui_MainWindow(object):
 		self.btn_shrink.setText(_translate("MainWindow","缩小"))
 		self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "展示页"))
 
-		self.lbe_imgA.setScaledContents(True)
-		self.lbe_imgB.setScaledContents(True)
+		#self.lbe_imgA.setScaledContents(True)
+		#self.lbe_imgB.setScaledContents(True)
 
