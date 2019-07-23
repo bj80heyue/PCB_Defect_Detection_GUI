@@ -12,8 +12,8 @@ import base64
 import cv2
 from PyQt5.QtWidgets import QApplication
 
-UPLOAD_API_URL = 'http://166.111.82.233:8080/upload'
-DETECT_API_URL = 'http://166.111.82.233:8080/detect'
+UPLOAD_API_URL = 'http://XXXXXX/upload'
+DETECT_API_URL = 'http://XXXXXX/detect'
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     signal_stop = pyqtSignal()
