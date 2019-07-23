@@ -14,8 +14,8 @@ import cv2
 from PyQt5.QtWidgets import QApplication
 import matplotlib.pyplot as plt
 
-UPLOAD_API_URL = 'http://166.111.82.233:8080/upload'
-DETECT_API_URL = 'http://166.111.82.233:8080/detect'
+UPLOAD_API_URL = 'http://XXXXXXX/upload'
+DETECT_API_URL = 'http://XXXXXXX/detect'
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     signal_stop = pyqtSignal()
